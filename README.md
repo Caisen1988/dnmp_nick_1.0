@@ -2,7 +2,6 @@
 Docker deploying Nginx MySQL PHP7 in one key, support full feature functions.
 
 ![Demo Image](./dnmp.png)
-
 ### Feature
 1. Completely open source.
 2. Support Multiple PHP version(PHP5.4, PHP5.6, PHP7.2) switch.
