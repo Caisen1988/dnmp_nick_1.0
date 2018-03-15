@@ -1,5 +1,6 @@
 FROM php:fpm
-
+ENV http_proxy http://10.33.13.11:8080
+ENV https_proxy http://10.33.13.11:8080
 ## Copy sources.list to container.
 ## Here we use 163.com sources list.
 ##     PHP 5.6.31+ should use jessie sources list
@@ -7,14 +8,14 @@ FROM php:fpm
 ## For more please check:
 ## PHP official docker repository: https://hub.docker.com/r/library/php/
 #COPY ./files/sources.list.stretch /etc/apt/sources.list
-COPY ./files/sources.list.jessie /etc/apt/sources.list
+COPY ./files/sources.list.stretch /etc/apt/sources.list
 
 ## Update Ubuntu
 RUN apt-get update
 
 ## mcrypt
-RUN apt-get install -y libmcrypt-dev
-RUN docker-php-ext-install mcrypt
+#RUN apt-get install -y libmcrypt-dev
+#RUN docker-php-ext-install mcrypt
 
 ## GD
 RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng12-dev

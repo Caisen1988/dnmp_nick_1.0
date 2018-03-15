@@ -1,4 +1,6 @@
 FROM php:7.2-fpm
+ENV http_proxy http://10.33.13.11:8080
+ENV https_proxy http://10.33.13.11:8080
 
 COPY ./sources.list.stretch /etc/apt/sources.list
 
@@ -107,7 +109,7 @@ RUN apt-get update \
 # or
 #    `Package "xxx" does not have REST xml available`
 # Please turn on proxy (The proxy IP may be docker host IP or others):
-RUN pear config-set http_proxy http://10.0.75.1:1080
+RUN pear config-set http_proxy http://10.33.13.11:8080
 
 RUN pecl install redis-3.1.4 \
     && docker-php-ext-enable redis \
